@@ -2,7 +2,7 @@ CREATE DATABASE NGOLogs;
 USE NGOLogs;
 
 CREATE TABLE registered_user (
-registered_userID int PRIMARY KEY,
+registered_userID int AUTO_INCREMENT PRIMARY KEY,
 registered_userName varchar(100),
 username varchar(30) NOT NULL, 
 user_password varchar(30) NOT NULL,

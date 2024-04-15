@@ -1,0 +1,17 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `search_ngos_by_cause`(
+in p_cause varchar(50)
+)
+BEGIN
+declare cause_exists int;
+
+if p_cause regexp '^[0-9]+$' then
+signal sqlstate '45000' set message_text = 'Invalid cause';
+else
+select count(*) into cause_exists from ngo where cause = p_cause;
+if cause_exists > 0 then
+select * from ngo where cause = p_cause;
+else
+ SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'No NGOs found for the specified cause.';
+end if;
+end if;
+END

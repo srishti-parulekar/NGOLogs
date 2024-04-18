@@ -1,1 +1,0 @@
-create table ngo(ngo_id int(10) primary key, website_link varchar(50), city varchar(50), cause varchar(50), ngo_email varchar(50), phone int(15));

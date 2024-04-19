@@ -53,6 +53,9 @@
 -- update ngo set revenue_generated = 73000 where ngoid = 1424009;
 -- update ngo set revenue_generated = 92300 where ngoid = 1424010;
 
+-- update ngo set num_volunteers = (select count(user_id) from volunteer where ngoid = 1424002) where ngoID = 1424002;
+-- update ngo set num_donors = (select count(user_id) from donor where ngoid = 1424001) where ngoID = 1424001;
+
 
 
 

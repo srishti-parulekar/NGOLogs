@@ -30,28 +30,7 @@
 -- alter table ngo add column num_volunteers int;
 -- alter table ngo add column num_donors int;
 
--- update ngo set num_volunteers = 150, num_donors = 80 where ngoid = 1424002;
--- update ngo set num_volunteers = 210, num_donors = 180 where ngoid = 1424003;
--- update ngo set num_volunteers = 190, num_donors = 100 where ngoid = 1424004;
--- update ngo set num_volunteers = 200, num_donors = 90 where ngoid = 1424005;
--- update ngo set num_volunteers = 150, num_donors = 190 where ngoid = 1424006;
--- update ngo set num_volunteers = 910, num_donors = 800 where ngoid = 1424007;
--- update ngo set num_volunteers = 340, num_donors = 180 where ngoid = 1424008;
--- update ngo set num_volunteers = 250, num_donors = 100 where ngoid = 1424009;
--- update ngo set num_volunteers = 350, num_donors = 290 where ngoid = 1424010;
-
 -- alter table ngo add column revenue_generated int;
-
--- update ngo set revenue_generated = 45000 where ngoid = 1424001;
--- update ngo set revenue_generated = 35000 where ngoid = 1424002;
--- update ngo set revenue_generated = 55000 where ngoid = 1424003;
--- update ngo set revenue_generated = 85000 where ngoid = 1424004;
--- update ngo set revenue_generated = 75000 where ngoid = 1424005;
--- update ngo set revenue_generated = 15000 where ngoid = 1424006;
--- update ngo set revenue_generated = 71000 where ngoid = 1424007;
--- update ngo set revenue_generated = 91000 where ngoid = 1424008;
--- update ngo set revenue_generated = 73000 where ngoid = 1424009;
--- update ngo set revenue_generated = 92300 where ngoid = 1424010;
 
 -- update ngo set num_volunteers = (select count(user_id) from volunteer where ngoid = 1424002) where ngoID = 1424002;
 -- update ngo set num_donors = (select count(user_id) from donor where ngoid = 1424001) where ngoID = 1424001;

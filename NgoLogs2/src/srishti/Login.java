@@ -173,7 +173,7 @@ public class Login extends javax.swing.JFrame {
                     String email = rs.getString("email");
                     String dob = rs.getString("dob");
                     String address = rs.getString("address");
-                    String phone = rs.getString("phone");
+                    String phone = rs.getString("phono");
                     setVisible(false);
                     new adminDash(username, fname, lname, userrole, email, address, phone, dob).setVisible(true);
                 } else if (rs.getString("userrole").equals("NGO")) {

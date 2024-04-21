@@ -19,6 +19,7 @@ public class Authenticate extends javax.swing.JFrame {
     public Authenticate() {
         initComponents();
         setLocationRelativeTo(null);
+        changePassPanel.setVisible(false);
     }
     public Authenticate(String username2) {
         initComponents();
@@ -52,6 +53,7 @@ public class Authenticate extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         headerPanel = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -223,19 +225,34 @@ public class Authenticate extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-go-back-48.png"))); // NOI18N
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
         headerPanel.setLayout(headerPanelLayout);
         headerPanelLayout.setHorizontalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         headerPanelLayout.setVerticalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerPanelLayout.createSequentialGroup()
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 23, Short.MAX_VALUE))
+                .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -276,6 +293,7 @@ public class Authenticate extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery("SELECT * FROM person where username = '" + username + "' AND userpassword = '" + password + "';");
             while (rs.next()) {
                 temp = 1;
+                authenticatePanel.setVisible(false);
                 changePassPanel.setVisible(true);
                 
             }
@@ -396,6 +414,45 @@ public class Authenticate extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jPasswordField3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        // TODO add your handling code here:
+        try {
+            Connection con = ConnectionProvider.getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM person where username = '" + username2 + "';");
+            while (rs.next()) {
+                if (rs.getString("userrole").equals("Admin")) {
+
+                    String fname = rs.getString("fname");
+                    String lname = rs.getString("lname");
+                    String userrole = rs.getString("userrole");
+                    String email = rs.getString("email");
+                    String dob = rs.getString("dob");
+                    String address = rs.getString("address");
+                    String phono = rs.getString("phono");
+                    setVisible(false);
+                    new adminDash(username2, fname, lname, userrole,email,address,phono,dob).setVisible(true);
+                }
+
+                else if (rs.getString("userrole").equals("NGO")){
+                    setVisible(false);
+                    //set the ngo jframe to be visible
+                }
+                else {
+                    setVisible(false);
+                    //new RegisteredUserDashboard().setVisible(true);
+                }
+            }}
+            catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+
+        }
+    }//GEN-LAST:event_jButton4MouseClicked
     
 
     /**
@@ -441,6 +498,7 @@ public class Authenticate extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

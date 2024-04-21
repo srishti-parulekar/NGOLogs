@@ -314,7 +314,7 @@ public class Registration extends javax.swing.JFrame {
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 0, 40, 30));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/image 4 (2).png"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 600));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

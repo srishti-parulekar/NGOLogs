@@ -1,5 +1,3 @@
-package srishti;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -11,6 +9,8 @@ import java.sql.ResultSet;
 import javax.swing.table.DefaultTableModel;
 import java.sql.PreparedStatement;
 import java.sql.*;
+import javax.swing.JTable;
+import java.util.Calendar;
 /**
  *
  * @author srishtiparulekar
@@ -30,7 +30,7 @@ public class adminDash extends javax.swing.JFrame {
     EmpDesignation2.setText("Unknown");
     
     }
-    public adminDash(String username, String fname, String lname, String userrole,String email, String address, String phone,String dob) {
+    public adminDash(String username, String fname, String lname, String userrole,String email, String address, String phono,String dob) {
     initComponents();
     this.username = username;
     this.fname = fname;
@@ -38,8 +38,23 @@ public class adminDash extends javax.swing.JFrame {
     this.userrole = userrole;
     this.email = email;
     this.address = address;
-    this.phone = phone;
+    this.phono = phono;
     this.dob = dob;
+    try{
+    Connection con = ConnectionProvider.getCon();
+    Statement stmt = null;
+    stmt = con.createStatement();
+    String sql = "SELECT userID WHERE username ='" + username + "';";
+    ResultSet rs = stmt.executeQuery(sql);
+    myuserID = rs.getInt("userID");
+    String sql2 = "SELECT password WHERE username = '" + username + "';";
+    
+    rs = stmt.executeQuery(sql2);
+    password = rs.getString("userpassword");
+    } 
+    catch (SQLException e){
+        e.printStackTrace();
+    }
     
     
     setLocationRelativeTo(null);
@@ -49,7 +64,7 @@ public class adminDash extends javax.swing.JFrame {
     EmpDesignation2.setText(this.userrole);
     //EPUDA
     jLabel32.setText(email);
-    jLabel33.setText(phone);
+    jLabel33.setText(phono);
     jLabel34.setText(username);
     jLabel35.setText(dob);
     jLabel36.setText(address);
@@ -72,9 +87,6 @@ public class adminDash extends javax.swing.JFrame {
         EmpDesignation2 = new javax.swing.JLabel();
         btn8 = new javax.swing.JPanel();
         jLabel24 = new javax.swing.JLabel();
-        btn1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         btn2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -104,25 +116,44 @@ public class adminDash extends javax.swing.JFrame {
         jLabel36 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        searchUserDetails = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox<>();
         jLabel20 = new javax.swing.JLabel();
+        EnterValue = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable6 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        searchUserID = new javax.swing.JTextField();
+        txtFName = new javax.swing.JTextField();
+        txtLName = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
+        txtPhone = new javax.swing.JTextField();
+        txtAddress = new javax.swing.JTextField();
+        txtUsername = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -130,21 +161,18 @@ public class adminDash extends javax.swing.JFrame {
 
         sidePanel2.setBackground(new java.awt.Color(0, 102, 102));
         sidePanel2.setPreferredSize(new java.awt.Dimension(200, 700));
-        sidePanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        sidePanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 25, 200, 110));
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-teenager-female-50.png"))); // NOI18N
 
         EmpName2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         EmpName2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         EmpName2.setText("EmployeeName");
         EmpName2.setPreferredSize(new java.awt.Dimension(200, 17));
-        sidePanel2.add(EmpName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 200, -1));
 
         EmpDesignation2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         EmpDesignation2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         EmpDesignation2.setText("EmployeeDesignation");
-        sidePanel2.add(EmpDesignation2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 200, -1));
 
         btn8.setBackground(new java.awt.Color(0, 0, 0));
         btn8.setForeground(new java.awt.Color(255, 255, 255));
@@ -171,41 +199,6 @@ public class adminDash extends javax.swing.JFrame {
             .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        sidePanel2.add(btn8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 140, 40));
-
-        btn1.setBackground(new java.awt.Color(0, 0, 0));
-        btn1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn1MouseClicked(evt);
-            }
-        });
-
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Dashboard");
-
-        javax.swing.GroupLayout btn1Layout = new javax.swing.GroupLayout(btn1);
-        btn1.setLayout(btn1Layout);
-        btn1Layout.setHorizontalGroup(
-            btn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        btn1Layout.setVerticalGroup(
-            btn1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn1Layout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        sidePanel2.add(btn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 200, 80));
-
         btn2.setBackground(new java.awt.Color(0, 0, 0));
         btn2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -214,44 +207,31 @@ public class adminDash extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setBackground(new java.awt.Color(204, 204, 255));
+        jLabel5.setForeground(new java.awt.Color(204, 204, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-search-database-50 (1).png"))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Search User/Admin Database");
+        jLabel6.setText("Search Database");
         jLabel6.setToolTipText("");
-        jLabel6.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-                jLabel6AncestorMoved(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-                jLabel6AncestorRemoved(evt);
-            }
-        });
 
         javax.swing.GroupLayout btn2Layout = new javax.swing.GroupLayout(btn2);
         btn2.setLayout(btn2Layout);
         btn2Layout.setHorizontalGroup(
             btn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(btn2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
         );
         btn2Layout.setVerticalGroup(
             btn2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn2Layout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        sidePanel2.add(btn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 200, 80));
 
         btn3.setBackground(new java.awt.Color(0, 0, 0));
         btn3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -262,11 +242,12 @@ public class adminDash extends javax.swing.JFrame {
         });
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-database-administrator-50 (1).png"))); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Money");
+        jLabel8.setText("Update Database");
 
         javax.swing.GroupLayout btn3Layout = new javax.swing.GroupLayout(btn3);
         btn3.setLayout(btn3Layout);
@@ -278,13 +259,11 @@ public class adminDash extends javax.swing.JFrame {
         btn3Layout.setVerticalGroup(
             btn3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn3Layout.createSequentialGroup()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
-
-        sidePanel2.add(btn3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 200, 80));
 
         btn4.setBackground(new java.awt.Color(0, 0, 0));
         btn4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -295,11 +274,12 @@ public class adminDash extends javax.swing.JFrame {
         });
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/icons8-get-revenue-50.png"))); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setText("About Us");
+        jLabel10.setText("Revenue Generated");
 
         javax.swing.GroupLayout btn4Layout = new javax.swing.GroupLayout(btn4);
         btn4.setLayout(btn4Layout);
@@ -311,13 +291,11 @@ public class adminDash extends javax.swing.JFrame {
         btn4Layout.setVerticalGroup(
             btn4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(btn4Layout.createSequentialGroup()
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        sidePanel2.add(btn4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 200, 80));
 
         btn6.setBackground(new java.awt.Color(0, 0, 0));
         btn6.setForeground(new java.awt.Color(255, 255, 255));
@@ -337,14 +315,52 @@ public class adminDash extends javax.swing.JFrame {
         btn6.setLayout(btn6Layout);
         btn6Layout.setHorizontalGroup(
             btn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btn6Layout.createSequentialGroup()
+                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                .addContainerGap())
         );
         btn6Layout.setVerticalGroup(
             btn6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
         );
 
-        sidePanel2.add(btn6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 570, 200, 40));
+        javax.swing.GroupLayout sidePanel2Layout = new javax.swing.GroupLayout(sidePanel2);
+        sidePanel2.setLayout(sidePanel2Layout);
+        sidePanel2Layout.setHorizontalGroup(
+            sidePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sidePanel2Layout.createSequentialGroup()
+                .addGroup(sidePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EmpName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EmpDesignation2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(sidePanel2Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(10, 10, 10))
+        );
+        sidePanel2Layout.setVerticalGroup(
+            sidePanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sidePanel2Layout.createSequentialGroup()
+                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(EmpName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(EmpDesignation2)
+                .addGap(9, 9, 9)
+                .addComponent(btn8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btn2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(106, 106, 106)
+                .addComponent(btn6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         headerPanel.setBackground(new java.awt.Color(102, 102, 102));
 
@@ -352,11 +368,11 @@ public class adminDash extends javax.swing.JFrame {
         headerPanel.setLayout(headerPanelLayout);
         headerPanelLayout.setHorizontalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 52, Short.MAX_VALUE)
         );
         headerPanelLayout.setVerticalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 42, Short.MAX_VALUE)
         );
 
         centrePanel.setBackground(new java.awt.Color(153, 153, 153));
@@ -419,50 +435,59 @@ public class adminDash extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jButton2.setText("Refresh");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(369, 369, 369)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel30)
-                    .addComponent(jLabel29)
-                    .addComponent(jLabel28)
-                    .addComponent(jLabel27)
-                    .addComponent(jLabel26)
-                    .addComponent(jLabel25))
-                .addGap(43, 43, 43)
+                .addGap(285, 285, 285)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel33)
-                        .addContainerGap(465, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(111, 111, 111)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(jButton4)
+                        .addGap(31, 31, 31)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel30)
+                            .addComponent(jLabel29)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel27)
+                            .addComponent(jLabel26)
+                            .addComponent(jLabel25))
+                        .addGap(43, 43, 43)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel32)
                             .addComponent(jLabel31)
                             .addComponent(jLabel35)
                             .addComponent(jLabel36)
-                            .addComponent(jLabel34))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(480, 480, 480)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(471, 471, 471))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton4)
-                        .addGap(491, 491, 491))))
+                            .addComponent(jLabel34)
+                            .addComponent(jLabel33))))
+                .addContainerGap(427, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(70, 70, 70)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(53, 53, 53)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -488,37 +513,18 @@ public class adminDash extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel30)
                     .addComponent(jLabel36))
-                .addGap(52, 52, 52)
+                .addGap(63, 63, 63)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton4)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(1, 1, 1)))
+                .addContainerGap(198, Short.MAX_VALUE))
         );
 
         centrePanel.add(jPanel1, "card2");
-
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
-
-        jLabel13.setText("Dashboard");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(510, 510, 510)
-                .addComponent(jLabel13)
-                .addContainerGap(586, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel13)
-                .addContainerGap(629, Short.MAX_VALUE))
-        );
-
-        centrePanel.add(jPanel2, "card3");
 
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
 
@@ -527,11 +533,7 @@ public class adminDash extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "UserID", "First Name", "Last Name", "Email", "Phone Number", "Date of Birth", "Address", "Username"
@@ -540,20 +542,9 @@ public class adminDash extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Admin", "User", "NGO", "Volunteer", "Donor", " " }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
 
         jLabel17.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel17.setText("Filter your search: ");
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
 
         jLabel18.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel18.setText("Search by userID or Username:");
@@ -561,130 +552,336 @@ public class adminDash extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel19.setText("Choose any of the given filters to search for the required user's details:");
 
-        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jButton2.setText("Search");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        searchUserDetails.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        searchUserDetails.setText("Search");
+        searchUserDetails.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                searchUserDetailsMouseClicked(evt);
+            }
+        });
+        searchUserDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                searchUserDetailsActionPerformed(evt);
             }
         });
 
         jComboBox2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Admins", "Users", "NGOs", "Donors", "Volunteers", " " }));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Admin", "User", "NGO", "Donor", "Volunteer", " " }));
 
         jLabel20.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel20.setText("Search Count:");
+
+        EnterValue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EnterValueActionPerformed(evt);
+            }
+        });
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "donorID", "ngoID", "userID", "Amount Contributed", "Time of Donation"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable4);
+
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "volunteerID", "userID", "ngoID", "skills", "interests", "availability"
+            }
+        ));
+        jScrollPane5.setViewportView(jTable5);
+
+        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ngoID", "catID", "ngoName", "city", "email", "about"
+            }
+        ));
+        jScrollPane6.setViewportView(jTable6);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(459, 459, 459)
-                        .addComponent(jLabel14))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 956, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(180, 180, 180)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel18))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel20))
-                                .addGap(29, 29, 29))
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(441, 441, 441)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(132, Short.MAX_VALUE))
+                                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(180, 180, 180)
+                                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel18)
+                                            .addComponent(EnterValue, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                                        .addComponent(searchUserDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(40, 40, 40)))
+                                .addGap(190, 190, 190)
+                                .addComponent(jLabel20))
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(211, Short.MAX_VALUE))))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(448, 448, 448)
+                .addComponent(jLabel14))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(164, 164, 164))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel20))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(47, 47, 47)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(jButton2)
-                .addGap(38, 38, 38))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jComboBox2)
+                            .addComponent(jComboBox1))
+                        .addGap(47, 47, 47))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(EnterValue, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(searchUserDetails)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91))
         );
 
         centrePanel.add(jPanel3, "card4");
 
         jPanel4.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel15.setText("Money");
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 36)); // NOI18N
+        jLabel1.setText("Update Database");
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        jLabel2.setText("Search by UserID: ");
+
+        searchUserID.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+
+        txtFName.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        txtFName.setForeground(new java.awt.Color(153, 153, 153));
+        txtFName.setText("First Name");
+        txtFName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFNameActionPerformed(evt);
+            }
+        });
+
+        txtLName.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        txtLName.setForeground(new java.awt.Color(153, 153, 153));
+        txtLName.setText("Last Name");
+
+        txtEmail.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        txtEmail.setForeground(new java.awt.Color(153, 153, 153));
+        txtEmail.setText("Email");
+
+        txtPhone.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        txtPhone.setForeground(new java.awt.Color(153, 153, 153));
+        txtPhone.setText("Phone Number");
+
+        txtAddress.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        txtAddress.setForeground(new java.awt.Color(153, 153, 153));
+        txtAddress.setText("Address");
+
+        txtUsername.setFont(new java.awt.Font("Times New Roman", 2, 18)); // NOI18N
+        txtUsername.setForeground(new java.awt.Color(153, 153, 153));
+        txtUsername.setText("username");
+        txtUsername.setSize(new java.awt.Dimension(90, 23));
+
+        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save.png"))); // NOI18N
+        jButton3.setText("Save");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+
+        jButton5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
+        jButton5.setText("Search");
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton5MouseClicked(evt);
+            }
+        });
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(288, 288, 288)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtAddress)
+                            .addComponent(txtFName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(26, 26, 26)
+                                .addComponent(searchUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtLName)
+                                    .addComponent(txtPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                                    .addComponent(txtUsername)))))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(443, 443, 443)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(457, 457, 457)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(502, 502, 502)
+                        .addComponent(jButton3)))
+                .addContainerGap(349, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(jLabel1)
+                .addGap(47, 47, 47)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(searchUserID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton5)
+                .addGap(39, 39, 39)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(285, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(619, Short.MAX_VALUE)
-                .addComponent(jLabel15)
-                .addGap(502, 502, 502))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addComponent(jLabel15)
-                .addContainerGap(608, Short.MAX_VALUE))
+            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         centrePanel.add(jPanel4, "card5");
 
         jPanel5.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel16.setText("About Us");
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel16.setText("Revenue");
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Month", "Revenue"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "NGOID", "NGOName", "Total Revenue"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable3);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap(608, Short.MAX_VALUE)
-                .addComponent(jLabel16)
-                .addGap(498, 498, 498))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(513, 513, 513)
+                        .addComponent(jLabel16))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(65, 65, 65)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 476, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(49, 49, 49)
                 .addComponent(jLabel16)
-                .addContainerGap(621, Short.MAX_VALUE))
+                .addGap(116, 116, 116)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane3))
+                .addContainerGap(215, Short.MAX_VALUE))
         );
 
         centrePanel.add(jPanel5, "card6");
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close.png"))); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout mainPanel2Layout = new javax.swing.GroupLayout(mainPanel2);
         mainPanel2.setLayout(mainPanel2Layout);
@@ -696,31 +893,32 @@ public class adminDash extends javax.swing.JFrame {
                     .addGroup(mainPanel2Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(mainPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(centrePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(centrePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 1082, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         mainPanel2Layout.setVerticalGroup(
             mainPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(sidePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(mainPanel2Layout.createSequentialGroup()
-                .addComponent(jButton3)
-                .addGap(27, 27, 27)
+                .addGap(42, 42, 42)
                 .addComponent(centrePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(mainPanel2Layout.createSequentialGroup()
                 .addGap(1, 1, 1)
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(sidePanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 779, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mainPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(mainPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 781, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -729,25 +927,16 @@ public class adminDash extends javax.swing.JFrame {
     private void btn8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn8MouseClicked
         // TODO add your handling code here:
         jPanel1.setVisible(true);
-        jPanel2.setVisible(false);
+        
         jPanel3.setVisible(false);
         jPanel4.setVisible(false);
         jPanel5.setVisible(false);
     }//GEN-LAST:event_btn8MouseClicked
 
-    private void btn1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn1MouseClicked
-        // TODO add your handling code here:
-        jPanel1.setVisible(false);
-        jPanel2.setVisible(true);
-        jPanel3.setVisible(false);
-        jPanel4.setVisible(false);
-        jPanel5.setVisible(false);
-    }//GEN-LAST:event_btn1MouseClicked
-
     private void btn2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn2MouseClicked
         // TODO add your handling code here:
         jPanel1.setVisible(false);
-        jPanel2.setVisible(false);
+        
         jPanel3.setVisible(true);
         jPanel4.setVisible(false);
         jPanel5.setVisible(false);
@@ -756,21 +945,210 @@ public class adminDash extends javax.swing.JFrame {
     private void btn3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn3MouseClicked
         // TODO add your handling code here:
         jPanel1.setVisible(false);
-        jPanel2.setVisible(false);
+        
         jPanel3.setVisible(false);
         jPanel4.setVisible(true);
         jPanel5.setVisible(false);
     }//GEN-LAST:event_btn3MouseClicked
+//     
+//    private void displayMonthWiseDonations() {                                          
+//    try {
+//        Connection con = ConnectionProvider.getCon();
+//        Statement stmt = con.createStatement();
+//        // Get the current month and year
+//        Calendar cal = Calendar.getInstance();
+//        int currentMonth = cal.get(Calendar.MONTH) + 1; // Calendar.MONTH is zero-based
+//        int currentYear = cal.get(Calendar.YEAR);
+//        
+//        // Construct the SQL query to select donations for the current month and year
+//        String query = "SELECT DATE_FORMAT(timeOfDonation, '%Y-%m') AS donationMonth, SUM(amountContributed) AS totalDonation " +
+//                       "FROM donor " +
+//                       "WHERE YEAR(timeOfDonation) = " + currentYear + " AND MONTH(timeOfDonation) = " + currentMonth +
+//                       " GROUP BY DATE_FORMAT(timeOfDonation, '%Y-%m')";
+//        
+//        ResultSet rs = stmt.executeQuery(query);
+//        
+//        DefaultTableModel model = new DefaultTableModel();
+//        model.addColumn("Month");
+//        model.addColumn("Total Donation");
+//        
+//        while (rs.next()) {
+//            String donationMonth = rs.getString("donationMonth");
+//            int totalDonation = rs.getInt("totalDonation");
+//            model.addRow(new Object[]{donationMonth, totalDonation});
+//        }
+//        
+//        JTable table = new JTable(model);
+//        JOptionPane.showMessageDialog(null, table);
+//        
+//        rs.close();
+//        stmt.close();
+//        con.close();
+//    } catch (SQLException e) {
+//        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+//        e.printStackTrace();
+//    }
+//}
+    private void displayMonthWiseDonations() {                                          
+    try {
+        Connection con = ConnectionProvider.getCon();
+        Statement stmt = con.createStatement();
+        String query = "SELECT MONTH(timeOfDonation) AS donationMonth, SUM(amountContributed) AS totalDonation " +
+                       "FROM donor WHERE YEAR(timeOfDonation) = 2024 GROUP BY MONTH(timeOfDonation)";
+        ResultSet rs = stmt.executeQuery(query);
+        
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Month");
+        model.addColumn("Total Donation");
+        
+        while (rs.next()) {
+            int donationMonth = rs.getInt("donationMonth");
+            String monthName = getMonthName(donationMonth);
+            int totalDonation = rs.getInt("totalDonation");
+            model.addRow(new Object[]{monthName, totalDonation});
+        }
+        
+        jTable2.setModel(model); // Set the model to jTable2
+        
+        rs.close();
+        stmt.close();
+        con.close();
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        e.printStackTrace();
+    }
+}
 
     private void btn4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn4MouseClicked
         // TODO add your handling code here:
+        displayRevenueInfo();
+        displayMonthWiseDonations();
         jPanel1.setVisible(false);
-        jPanel2.setVisible(false);
+        
         jPanel3.setVisible(false);
         jPanel4.setVisible(false);
+        
         jPanel5.setVisible(true);
+        
     }//GEN-LAST:event_btn4MouseClicked
+//private void displayRevenueInfo() {
+//        try {
+//            Connection con = ConnectionProvider.getCon();
+//
+//            // Display revenue month-wise
+//            String sql = "SELECT MONTH(timeOfDonation) AS month, SUM(amountContributed) AS revenue FROM donor WHERE YEAR(timeOfDonation) = 2023 GROUP BY MONTH(timeOfDonation)";
+//            PreparedStatement stmt = con.prepareStatement(sql);
+//            ResultSet rs = stmt.executeQuery();
+//
+//            DefaultTableModel monthModel = new DefaultTableModel();
+//            monthModel.addColumn("Month");
+//            monthModel.addColumn("Revenue");
+//
+//            while (rs.next()) {
+//                String month = getMonthName(rs.getInt("month"));
+//                int revenue = rs.getInt("revenue");
+//                monthModel.addRow(new Object[]{month, revenue});
+//            }
+//
+//            jTable2.setModel(monthModel);
+//
+//            // Display total revenue, NGO ID, and NGO name
+//            String sql2 = "SELECT n.ngoID, n.ngoName, SUM(d.amountContributed) AS totalRevenue FROM ngo n JOIN donor d ON n.ngoID = d.ngo_id GROUP BY n.ngoID";
+//            PreparedStatement stmt2 = con.prepareStatement(sql2);
+//            ResultSet totalrs = stmt2.executeQuery();
+//
+//            DefaultTableModel totalRevenueModel = new DefaultTableModel();
+//            totalRevenueModel.addColumn("NGO ID");
+//            totalRevenueModel.addColumn("NGO Name");
+//            totalRevenueModel.addColumn("Total Revenue");
+//
+//            while (totalrs.next()) {
+//                int ngoID = totalrs.getInt("ngoID");
+//                String ngoName = totalrs.getString("ngoName");
+//                int totalRevenue = totalrs.getInt("totalRevenue");
+//                totalRevenueModel.addRow(new Object[]{ngoID, ngoName, totalRevenue});
+//            }
+//
+//            jTable3.setModel(totalRevenueModel);
+//
+//            // Close resources
+//            rs.close();
+//            stmt.close();
+//            totalrs.close();
+//            stmt2.close();
+//            con.close();
+//        } catch (SQLException e) {
+//            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+//            e.printStackTrace();
+//        }
+//    }
+    private void displayRevenueInfo() {
+    try {
+        Connection con = ConnectionProvider.getCon();
 
+//        // Display revenue month-wise
+//        String sql = "SELECT MONTH(timeOfDonation) AS month, SUM(amountContributed) AS revenue FROM donor WHERE YEAR(timeOfDonation) = 2023 GROUP BY MONTH(timeOfDonation)";
+//        PreparedStatement stmt = con.prepareStatement(sql);
+//        ResultSet rs = stmt.executeQuery();
+//
+
+
+          DefaultTableModel monthModel = new DefaultTableModel();
+//        monthModel.addColumn("Month");
+//        monthModel.addColumn("Revenue");
+//
+//        while (rs.next()) {
+//            String month = getMonthName(rs.getInt("month"));
+//            int revenue = rs.getInt("revenue");
+//            monthModel.addRow(new Object[]{month, revenue});
+//        }
+
+        jTable2.setModel(monthModel);
+
+        // Display total revenue, NGO ID, and NGO name
+        String sql2 = "SELECT n.ngoID, n.ngoName, SUM(d.amountContributed) AS totalRevenue FROM ngo n JOIN donor d ON n.ngoID = d.ngo_id GROUP BY n.ngoID";
+        PreparedStatement stmt2 = con.prepareStatement(sql2);
+        ResultSet totalrs = stmt2.executeQuery();
+
+        DefaultTableModel totalRevenueModel = new DefaultTableModel();
+        totalRevenueModel.addColumn("NGO ID");
+        totalRevenueModel.addColumn("NGO Name");
+        totalRevenueModel.addColumn("Total Revenue");
+
+        while (totalrs.next()) {
+            int ngoID = totalrs.getInt("ngoID");
+            String ngoName = totalrs.getString("ngoName");
+            int totalRevenue = totalrs.getInt("totalRevenue");
+            totalRevenueModel.addRow(new Object[]{ngoID, ngoName, totalRevenue});
+        }
+
+        jTable3.setModel(totalRevenueModel);
+
+        // Display month-wise donations
+        displayMonthWiseDonations();
+
+        // Close resources
+//        rs.close();
+//        stmt.close();
+        totalrs.close();
+        stmt2.close();
+        con.close();
+    } catch (SQLException e) {
+        JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+        e.printStackTrace();
+    }
+}
+
+
+    // Function to get month name from month number
+    private String getMonthName(int month) {
+        String[] monthNames = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+        return monthNames[month - 1];
+    }
+
+     
+    
+    // Other code...
     private void btn6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn6MouseClicked
         // Logout button
         int a = JOptionPane.showConfirmDialog(null,"Do you want to log out?", "Log out",JOptionPane.YES_NO_OPTION);
@@ -780,116 +1158,13 @@ public class adminDash extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn6MouseClicked
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-/*
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        // Search User function 
-
-        /*DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-        try {
-            Connection con = ConnectionProvider.getCon();
-            String searchText = jTextField1.getText().trim();
-            
-            //if (searchText.isEmpty() && jComboBox1.equals("None") && jComboBox2.equals("none") )
-            String sql = "SELECT * FROM person";
-            PreparedStatement stmt = con.prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery();
-            model.setRowCount(0);
-            while (rs.next()) {
-                Object[] row = {
-                    rs.getInt("userID"),
-                    rs.getString("fname"),
-                    rs.getString("lname"),
-                    rs.getString("email"),
-                    rs.getString("phono"),
-                    rs.getString("dob"),
-                    rs.getString("Address"),
-                    rs.getString("username"),
-                    rs.getString("userpassword"),
-                    rs.getString("userrole")
-                };
-                model.addRow(row);
-            }
-            con.close();
-            rs.close();
-            stmt.close();}
-         catch (SQLException e) {
-            e.printStackTrace();
-        }
-    DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
-    try {
-        Connection con = ConnectionProvider.getCon();
-        String searchText = jTextField1.getText().trim();
-        String selectedValue1 = (String) jComboBox1.getSelectedItem();
-        String selectedValue2 = (String) jComboBox2.getSelectedItem();
-
-        if ((searchText.isEmpty() && 
-            (selectedValue1 == null || selectedValue1.equalsIgnoreCase("None")) && 
-            (selectedValue2 == null || selectedValue2.equalsIgnoreCase("none"))) || 
-            (!searchText.isEmpty())) {
-            
-            String sql;
-            PreparedStatement stmt;
-            
-            if (!searchText.isEmpty()) {
-                // Check if the search text matches userID or username
-                sql = "SELECT * FROM person WHERE userID = ? OR username = ?";
-                stmt = con.prepareStatement(sql);
-                stmt.setString(1, searchText); // Set userID parameter
-                stmt.setString(2, searchText); // Set username parameter
-            } else {
-                // Print entire table
-                sql = "SELECT * FROM person";
-                stmt = con.prepareStatement(sql);
-            }
-            
-            ResultSet rs = stmt.executeQuery();
-            model.setRowCount(0);
-            while (rs.next()) {
-                Object[] row = {
-                    rs.getInt("userID"),
-                    rs.getString("fname"),
-                    rs.getString("lname"),
-                    rs.getString("email"),
-                    rs.getString("phono"),
-                    rs.getString("dob"),
-                    rs.getString("Address"),
-                    rs.getString("username"),
-                    rs.getString("userpassword"),
-                    rs.getString("userrole")
-                };
-                model.addRow(row);
-            }
-            con.close();
-            rs.close();
-            stmt.close();
-        }
-    } catch (SQLException e) {
-        e.printStackTrace();
-    }
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-*/
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    int a = JOptionPane.showConfirmDialog(null, "Do you want to close the application", "Select", JOptionPane.YES_NO_OPTION);
-        if (a == 0) {
-            System.exit(0);
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
+/**/
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
         Connection con = ConnectionProvider.getCon();
-        String sql = "SELECT fname, lname, email, phone FROM person WHERE userrole = 'Admin' AND username != ?";
+        String sql = "SELECT fname, lname, email, phono FROM person WHERE userrole = 'Admin' AND username != ?";
         PreparedStatement stmt = con.prepareStatement(sql);
         stmt.setString(1, username); 
         ResultSet rs = stmt.executeQuery();
@@ -898,7 +1173,7 @@ public class adminDash extends javax.swing.JFrame {
         while (rs.next()) {
             String name = rs.getString("fname") + " " + rs.getString("lname");
             String email = rs.getString("email");
-            String phone = rs.getString("phone");
+            String phone = rs.getString("phono");
             message.append("Name: ").append(name).append("\n")
                    .append("Email: ").append(email).append("\n")
                    .append("Phone: ").append(phone).append("\n\n");
@@ -920,25 +1195,149 @@ public class adminDash extends javax.swing.JFrame {
         setVisible(false);
         new Authenticate(username).setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jLabel6AncestorMoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel6AncestorMoved
+/**/
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel6AncestorMoved
+    }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jLabel6AncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jLabel6AncestorRemoved
+    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel6AncestorRemoved
-  
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-    // Search User function 
+        // Get the search keyword from jTextField2
+    //String searchKeyword = searchUserID.getText().trim();
+    
+    
+    
+    
+    String searchKeyword = searchUserID.getText().trim();
+    updationUserID = Integer.parseInt(searchKeyword);
+//    this.updationUserID = updationUserID;
+    
+    
+    
+    // Check if the search keyword is not empty
+    if (!searchKeyword.isEmpty()) {
+        try {
+            Connection con = ConnectionProvider.getCon();
+            String sql = "SELECT * FROM person WHERE userID = " + updationUserID + ";";
+//            PreparedStatement stmt = con.prepareStatement(sql);
+//            
+//            // Set the search keyword as parameter values
+//            stmt.setString(1, searchKeyword);
+//            
+            Statement stmt = null;
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
 
-    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            // Check if any record is found
+            if (rs.next()) {
+                // Retrieve values from ResultSet and set them to text fields
+                txtFName.setText(rs.getString("fname"));
+                txtLName.setText(rs.getString("lname"));
+                txtAddress.setText(rs.getString("address"));
+                
+                
+                txtPhone.setText(rs.getString("phono"));
+                txtEmail.setText(rs.getString("email"));
+                txtUsername.setText(rs.getString("username"));
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No record found.");
+                // Clear text fields if no record is found
+                txtFName.setText("");
+                txtLName.setText("");
+                txtAddress.setText("");
+                
+                txtPhone.setText("");
+                txtEmail.setText("");
+                txtUsername.setText("");
+                
+                
+            }
+
+            // Close resources
+            rs.close();
+            stmt.close();
+            con.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+        }
+    } else {
+        JOptionPane.showMessageDialog(null, "Please enter a search keyword.");
+    }
+
+    }//GEN-LAST:event_jButton5MouseClicked
+
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+    String newfname = txtFName.getText();
+    String newlname = txtLName.getText();
+    String newaddress = txtAddress.getText();
+    String newphone = txtPhone.getText();
+    String newemail = txtEmail.getText();
+
+    // Check if any field is empty
+    if (newfname.isEmpty() || newlname.isEmpty() || newaddress.isEmpty() || newphone.isEmpty() || newemail.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Please fill in all fields");
+        return;
+    }
+
     try {
         Connection con = ConnectionProvider.getCon();
-        String searchText = jTextField1.getText().trim();
+        String sql = "UPDATE person SET fname=?, lname=?, address=?,  phono=?, email=? WHERE userID=?";
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, newfname);
+        stmt.setString(2, newlname);
+        stmt.setString(3, newaddress);
+//       
+        stmt.setString(4, newphone);
+        stmt.setString(5, newemail);
+        
+    
+        stmt.setInt(6, updationUserID); 
+        
+
+        int rowsAffected = stmt.executeUpdate();
+        if (rowsAffected > 0) {
+            JOptionPane.showMessageDialog(null, "Person information updated successfully");
+        } else {
+            JOptionPane.showMessageDialog(null, "Failed to update person information");
+        }
+
+        
+        stmt.close();
+        con.close();
+    } catch (Exception ex) {
+        JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+        ex.printStackTrace();
+    }
+    }//GEN-LAST:event_jButton3MouseClicked
+    private int executeCountQuery(String sql) throws SQLException {
+    Connection con = ConnectionProvider.getCon();
+    Statement stmt = con.createStatement();
+    ResultSet rs = stmt.executeQuery(sql);
+    rs.next();
+    int count = rs.getInt(1);
+    
+    rs.close();
+    stmt.close();
+    con.close();
+    return count;
+}
+/*
+    private void searchUserDetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_searchUserDetailsMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        DefaultTableModel donorTableModel = (DefaultTableModel) jTable4.getModel();
+        DefaultTableModel volunteerTableModel = (DefaultTableModel) jTable5.getModel();
+        DefaultTableModel ngoTableModel = (DefaultTableModel) jTable6.getModel();
+    try {
+        Connection con = ConnectionProvider.getCon();
+        String searchText = EnterValue.getText().trim();
         String selectedValue1 = (String) jComboBox1.getSelectedItem();
         String selectedValue2 = (String) jComboBox2.getSelectedItem();
-
+        
         if (!searchText.isEmpty()) {
             // Search by userID or username
             String sql = "SELECT * FROM person WHERE userID = ? OR username = ?";
@@ -946,6 +1345,7 @@ public class adminDash extends javax.swing.JFrame {
             stmt.setString(1, searchText); // Set userID parameter
             stmt.setString(2, searchText); // Set username parameter
             executeQuery(stmt, model, con);
+            
         } 
         else if (selectedValue2 != null && selectedValue2.equalsIgnoreCase("Admins")) {
             // Count of Admins
@@ -967,38 +1367,104 @@ public class adminDash extends javax.swing.JFrame {
         }
         else if (selectedValue2 != null && selectedValue2.equalsIgnoreCase("NGOs")) {
             // Count of NGOs
-              Statement stmt = con.createStatement();
-              String sql = "SELECT COUNT(*) FROM person WHERE userrole = 'NGO'";
-              ResultSet rs = stmt.executeQuery(sql);
-              rs.next();
-              int count = rs.getInt(1);
-              JOptionPane.showMessageDialog(null, "Total number of NGO: " + count);
+              String sql = "SELECT COUNT(*) FROM ngo";
+              JOptionPane.showMessageDialog(null, "Total number of NGOs: " + executeCountQuery(sql));
         }
         else if (selectedValue2 != null && selectedValue2.equalsIgnoreCase("Volunteers")) {
             // Count of Volunteers
-              Statement stmt = con.createStatement();
-              String sql = "SELECT COUNT(*) FROM person WHERE userrole = 'Volunteer'";
-              ResultSet rs = stmt.executeQuery(sql);
-              rs.next();
-              int count = rs.getInt(1);
-              JOptionPane.showMessageDialog(null, "Total number of Volunteers: " + count);
+              String sql = "SELECT COUNT(*) FROM volunteer";
+              JOptionPane.showMessageDialog(null, "Total number of Volunteers: " + executeCountQuery(sql));
         }
         else if (selectedValue2 != null && selectedValue2.equalsIgnoreCase("Donors")) {
             // Count of Donors
-              Statement stmt = con.createStatement();
-              String sql = "SELECT COUNT(*) FROM person WHERE userrole = 'Donor'";
-              ResultSet rs = stmt.executeQuery(sql);
-              rs.next();
-              int count = rs.getInt(1);
-              JOptionPane.showMessageDialog(null, "Total number of Donors: " + count);
+              String sql = "SELECT COUNT(*) FROM donor";
+              JOptionPane.showMessageDialog(null, "Total number of Donors: " + executeCountQuery(sql));
         }
         
         else if (selectedValue1 != null && !selectedValue1.equalsIgnoreCase("None")) {
             // Search by User Role
+            if(selectedValue1.equals("Admin") || selectedValue1.equals("NGO") || selectedValue1.equals("User") ){
             String sql = "SELECT * FROM person WHERE userrole = ?";
             PreparedStatement stmt = con.prepareStatement(sql);
             stmt.setString(1, selectedValue1);
             executeQuery(stmt, model, con);
+            }
+            
+            else {
+                
+                if (selectedValue2 != null && selectedValue2.equalsIgnoreCase("NGOs")) {
+            // Count of NGOs
+            String sql = "SELECT * FROM ngo";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            ngoTableModel.setRowCount(0); // Clear previous data
+            while (rs.next()) {
+                // Add row to the ngo table model
+                ngoTableModel.addRow(new Object[]{
+                    rs.getInt("ngoId"),
+                    rs.getInt("catID"),
+                    rs.getString("ngoName"),
+                    rs.getString("city"),
+                    rs.getString("email"),
+                    rs.getString("about"),
+                    
+                });
+            }
+            rs.close();
+            stmt.close();
+        }
+                else if(selectedValue1.equals("Donor")){
+            String sql2 = "SELECT * FROM donor";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            donorTableModel.setRowCount(0); // Clear previous data
+            while (rs.next()) {
+                // Add row to the donor table model
+                donorTableModel.addRow(new Object[]{
+                    rs.getInt("donorID"),
+                    rs.getInt("ngo_id"),
+                    rs.getInt("user_ID"),
+                    rs.getInt("amountContributed"),
+                    rs.getTimestamp("timeOfDonation")
+                });
+                        } }
+            else if (selectedValue2 != null && selectedValue2.equalsIgnoreCase("Volunteers")) {
+            // Count of Volunteers
+            String sql = "SELECT * FROM Volunteer";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            volunteerTableModel.setRowCount(0); // Clear previous data
+            while (rs.next()) {
+                // Add row to the volunteer table model
+                volunteerTableModel.addRow(new Object[]{
+                    rs.getInt("volunteerId"),
+                    rs.getInt("user_id"),
+                    rs.getInt("ngoID"),
+                    rs.getString("skills"),
+                    rs.getString("interests"),
+                    rs.getString("availability")
+                });
+            }
+            rs.close();
+            stmt.close();
+        }
+        else if (selectedValue2 != null && selectedValue2.equalsIgnoreCase("Donors")) {
+            // Count of Donors
+            String sql = "SELECT * FROM donor";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            donorTableModel.setRowCount(0); // Clear previous data
+            while (rs.next()) {
+                // Add row to the donor table model
+                donorTableModel.addRow(new Object[]{
+                    rs.getInt("donorID"),
+                    rs.getInt("ngo_id"),
+                    rs.getInt("user_ID"),
+                    rs.getInt("amountContributed"),
+                    rs.getTimestamp("timeOfDonation")
+                });
+            }
+        }   
         } else {
             // Print entire table
             String sql = "SELECT * FROM person";
@@ -1011,48 +1477,180 @@ public class adminDash extends javax.swing.JFrame {
     catch (Exception e){
         JOptionPane.showMessageDialog(null, e);
     }
-}
+        
+    }//GEN-LAST:event_searchUserDetailsMouseClicked
+*/
+    private void searchUserDetailsMouseClicked(java.awt.event.MouseEvent evt) {                                               
+    DefaultTableModel userModel = (DefaultTableModel) jTable1.getModel();
+    DefaultTableModel donorModel = (DefaultTableModel) jTable4.getModel();
+    DefaultTableModel volunteerModel = (DefaultTableModel) jTable5.getModel();
+    DefaultTableModel ngoModel = (DefaultTableModel) jTable6.getModel();
+
+    try {
+        Connection con = ConnectionProvider.getCon();
+        String searchText = EnterValue.getText().trim();
+        String selectedFilter = (String) jComboBox1.getSelectedItem();
+        String selectedCount = (String) jComboBox2.getSelectedItem();
+
+        if (!searchText.isEmpty()) {
+            // Search by userID or username in all tables
+            String userSql = "SELECT * FROM person WHERE userID = ? OR username = ?";
+            PreparedStatement userStmt = con.prepareStatement(userSql);
+            userStmt.setString(1, searchText); // Set userID parameter
+            userStmt.setString(2, searchText); // Set username parameter
+            executeQuery(userStmt, userModel, con);
+
+            String donorSql = "SELECT * FROM donor WHERE user_ID = ?";
+            PreparedStatement donorStmt = con.prepareStatement(donorSql);
+            donorStmt.setString(1, searchText); // Set user_ID parameter
+            executeQuery(donorStmt, donorModel, con);
+
+            String volunteerSql = "SELECT * FROM Volunteer WHERE user_id = ?";
+            PreparedStatement volunteerStmt = con.prepareStatement(volunteerSql);
+            volunteerStmt.setString(1, searchText); // Set user_id parameter
+            executeQuery(volunteerStmt, volunteerModel, con);
+
+            String ngoSql = "SELECT * FROM ngo WHERE user_id = ?";
+            PreparedStatement ngoStmt = con.prepareStatement(ngoSql);
+            ngoStmt.setString(1, searchText); // Set user_id parameter
+            executeQuery(ngoStmt, ngoModel, con);
+
+        } else if (selectedCount != null && !selectedCount.equalsIgnoreCase("None")) {
+            // Count users based on selected role
+            if(selectedCount.equals("Admin") || selectedCount.equals("User")){
+            String countSql = "SELECT COUNT(*) FROM person WHERE userrole = ?";
+            PreparedStatement countStmt = con.prepareStatement(countSql);
+            countStmt.setString(1, selectedCount);
+            ResultSet rs = countStmt.executeQuery();
+            rs.next();
+            int count = rs.getInt(1);
+            JOptionPane.showMessageDialog(null, "Total number of " + selectedCount + ": " + count);}
+            else if (selectedCount.equals("Volunteer") || selectedCount.equals("Donor") || selectedCount.equals("NGO")){
+            String countSql2 = "SELECT COUNT(*) FROM ?; ";
+            PreparedStatement countStmt2 = con.prepareStatement(countSql2);
+            countStmt2.setString(1, selectedCount);
+            ResultSet rs = countStmt2.executeQuery();
+            rs.next();
+            int count = rs.getInt(1);
+            JOptionPane.showMessageDialog(null, "Total number of " + selectedCount + ": " + count);
+            }
+            
+        } else if (selectedFilter != null && !selectedFilter.equalsIgnoreCase("None")) {
+            // Filter based on selected role
+            String sql;
+            if (selectedFilter.equalsIgnoreCase("Admin")) {
+                sql = "SELECT * FROM person WHERE userrole = 'Admin'";
+            } else if (selectedFilter.equalsIgnoreCase("Donor")) {
+                sql = "SELECT * FROM donor";
+            } else if (selectedFilter.equalsIgnoreCase("Volunteer")) {
+                sql = "SELECT * FROM Volunteer";
+            } else if (selectedFilter.equalsIgnoreCase("NGO")) {
+                sql = "SELECT * FROM ngo";
+            } else {
+                // Invalid filter selected
+                return;
+            }
+            PreparedStatement stmt = con.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            switch (selectedFilter) {
+                case "Admin":
+                    fillTable(rs, userModel);
+                    break;
+                case "Donor":
+                    fillTable(rs, donorModel);
+                    break;
+                case "Volunteer":
+                    fillTable(rs, volunteerModel);
+                    break;
+                case "NGO":
+                    fillTable(rs, ngoModel);
+                    break;
+            }
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null, e);
+    }
+} 
 
 private void executeQuery(PreparedStatement stmt, DefaultTableModel model, Connection con) throws SQLException {
     ResultSet rs = stmt.executeQuery();
-    model.setRowCount(0);
-    while (rs.next()) {
-        Object[] row = {
-            rs.getInt("userID"),
-            rs.getString("fname"),
-            rs.getString("lname"),
-            rs.getString("email"),
-            rs.getString("phone"),
-            rs.getString("dob"),
-            rs.getString("Address"),
-            rs.getString("username"),
-            rs.getString("userpassword"),
-            rs.getString("userrole")
-        };
-        model.addRow(row);
-    }
-    con.close();
+    model.setRowCount(0); // Clear previous data
+    fillTable(rs, model);
     rs.close();
     stmt.close();
+    con.close();
 }
 
-//private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-//    // Count function
-//
-//    try {
-//        Connection con = ConnectionProvider.getCon();
-//        String sql = "SELECT COUNT(*) FROM person";
-//        PreparedStatement stmt = con.prepareStatement(sql);
-//        ResultSet rs = stmt.executeQuery();
-//        rs.next();
-//        int count = rs.getInt(1);
-//        JOptionPane.showMessageDialog(this, "Total Count: " + count, "Count", JOptionPane.INFORMATION_MESSAGE);
-//        con.close();
-//        rs.close();
-//        stmt.close();
-//    } catch (SQLException e) {
-//    }
-//}
+private void fillTable(ResultSet rs, DefaultTableModel model) throws SQLException {
+    ResultSetMetaData rsmd = rs.getMetaData();
+    int columnsNumber = rsmd.getColumnCount();
+    while (rs.next()) {
+        Object[] rowData = new Object[columnsNumber];
+        for (int i = 0; i < columnsNumber; i++) {
+            rowData[i] = rs.getObject(i + 1);
+        }
+        model.addRow(rowData);
+    }
+}
+
+    private void txtFNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFNameActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        try {
+            Connection con = ConnectionProvider.getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM person where username = '" + username + "' AND userpassword = '" + password + "';");
+            while (rs.next()) {
+                if (rs.getString("userrole").equals("Admin")) {
+
+                    String fname = rs.getString("fname");
+                    String lname = rs.getString("lname");
+                    String userrole = rs.getString("userrole");
+                    String email = rs.getString("email");
+                    String dob = rs.getString("dob");
+                    String address = rs.getString("address");
+                    String phono = rs.getString("phono");
+                    setVisible(false);
+                    new adminDash(username, fname, lname, userrole,email,address,phono,dob).setVisible(true);
+                }
+
+                else if (rs.getString("userrole").equals("NGO")){
+                    setVisible(false);
+                    //set the ngo jframe to be visible
+                }
+                else {
+                    setVisible(false);
+                    //new RegisteredUserDashboard().setVisible(true);
+                }
+            }}
+            catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+
+        }
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void searchUserDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchUserDetailsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchUserDetailsActionPerformed
+
+    private void EnterValueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EnterValueActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EnterValueActionPerformed
+  
+
+    
+
+
+
 
     
     /**
@@ -1093,7 +1691,7 @@ private void executeQuery(PreparedStatement stmt, DefaultTableModel model, Conne
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel EmpDesignation2;
     private javax.swing.JLabel EmpName2;
-    private javax.swing.JPanel btn1;
+    private javax.swing.JTextField EnterValue;
     private javax.swing.JPanel btn2;
     private javax.swing.JPanel btn3;
     private javax.swing.JPanel btn4;
@@ -1105,18 +1703,19 @@ private void executeQuery(PreparedStatement stmt, DefaultTableModel model, Conne
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
@@ -1125,7 +1724,6 @@ private void executeQuery(PreparedStatement stmt, DefaultTableModel model, Conne
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -1133,30 +1731,49 @@ private void executeQuery(PreparedStatement stmt, DefaultTableModel model, Conne
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
+    private javax.swing.JTable jTable6;
     private javax.swing.JPanel mainPanel2;
+    private javax.swing.JButton searchUserDetails;
+    private javax.swing.JTextField searchUserID;
     private javax.swing.JPanel sidePanel2;
+    private javax.swing.JTextField txtAddress;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtFName;
+    private javax.swing.JTextField txtLName;
+    private javax.swing.JTextField txtPhone;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
     private String username = ""; 
     private String fname = ""; 
     private String lname = ""; 
     private String userrole = ""; 
     private String email = ""; 
-    private String phone = ""; 
+    private String phono = ""; 
     private String address = ""; 
     private String dob = ""; 
-    
+    int myuserID = 0;
+    static int updationUserID = 0;
+    private String password = "";
 }
+

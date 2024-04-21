@@ -381,7 +381,7 @@ public class Registration extends javax.swing.JFrame {
                 //not including userrole as a parameter because it is defualt set to user (not admin or ngo)
                 //this registration is only for users who are looking to be members to donate, volunteer or browse.
 
-                String sql = "INSERT INTO person(fname, lname, email, phone, dob, address, username, userpassword) "
+                String sql = "INSERT INTO person(fname, lname, email, phono, dob, address, username, userpassword) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                 PreparedStatement stmt = con.prepareStatement(sql);
                 stmt.setString(1, fname);

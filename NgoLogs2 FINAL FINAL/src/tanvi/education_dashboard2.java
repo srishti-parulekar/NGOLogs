@@ -79,22 +79,23 @@ public class education_dashboard2 extends javax.swing.JFrame {
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 290, 267, 41));
 
         jLabel3.setBackground(new java.awt.Color(153, 255, 153));
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("<html> Illuminating Futures. Committed to breaking barriers and nurturing talents in underserved areas. Our passion lies in fostering a love for learning and empowering individuals to thrive academically, ensuring no dream goes unfulfilled.");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 386, 127));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 350, 650, 140));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("EmpowerEd Education - Pune");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 350, 41));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("<html>EmpowerEd Foundation: Igniting Minds, Transforming Futures. Our mission is to provide quality education to underprivileged children, empowering them to break the cycle of poverty and reach their full potential. Through innovative teaching methods and community engagement, we're shaping tomorrow's leaders, one student at a time.");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 386, 127));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, 620, 127));
 
-        EVD1.setText("Donate");
+        EVD1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        EVD1.setText("<html>Donate");
         EVD1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EVD1ActionPerformed(evt);
@@ -103,18 +104,19 @@ public class education_dashboard2 extends javax.swing.JFrame {
         jPanel1.add(EVD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 87, 44));
 
         EV2.setBackground(new java.awt.Color(51, 51, 255));
-        EV2.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        EV2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         EV2.setForeground(new java.awt.Color(255, 255, 255));
-        EV2.setText("Volunteer");
+        EV2.setText("<html>Volunteer");
         EV2.setToolTipText("");
         EV2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EV2ActionPerformed(evt);
             }
         });
-        jPanel1.add(EV2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 99, 43));
+        jPanel1.add(EV2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 110, 43));
 
-        ED2.setText("Donate");
+        ED2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        ED2.setText("<html>Donate");
         ED2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ED2ActionPerformed(evt);
@@ -123,15 +125,15 @@ public class education_dashboard2 extends javax.swing.JFrame {
         jPanel1.add(ED2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 380, 87, 43));
 
         EV3.setBackground(new java.awt.Color(51, 51, 255));
-        EV3.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        EV3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         EV3.setForeground(new java.awt.Color(255, 255, 255));
-        EV3.setText("Volunteer");
+        EV3.setText("<html>Volunteer");
         EV3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EV3ActionPerformed(evt);
             }
         });
-        jPanel1.add(EV3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 99, 44));
+        jPanel1.add(EV3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 110, 44));
 
         jButton1.setText("Go Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

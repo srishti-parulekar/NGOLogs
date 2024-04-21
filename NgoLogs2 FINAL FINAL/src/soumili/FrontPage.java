@@ -82,7 +82,7 @@ public class FrontPage extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 10, 115, 41));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 10, 115, 41));
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jButton2.setText("Signup");
@@ -91,12 +91,12 @@ public class FrontPage extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 60, 115, 41));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 60, 115, 41));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("<html> <body>     <h1>About Us</h1>     <p>Our platform will act as a medium for anyone who wishes to contribute to a good cause by eliminating cumbersome searches and registration processes.<br>     The platform filters NGOs based on specific causes the user is passionate about, for example, education, poverty, food security, or various other social issues. This targeted approach lets the user identify the right NGO that aligns with the user's values and interests, saving valuable time and effort.</p> </body> </html> ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 558, 310));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 760, 370));
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton3.setText("Explore NGOs");
@@ -107,11 +107,11 @@ public class FrontPage extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 418, 206, 46));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("<html> <body>     <p>         To engage in volunteering and charitable<br>         contributions for noble causes, you are<br>         encouraged to explore a diverse range of<br>         Non-Governmental Organizations (NGOs)<br>         spanning various domains.     </p> </body> </html> ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 219, 206, 181));
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 600));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

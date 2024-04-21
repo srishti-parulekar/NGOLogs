@@ -75,60 +75,60 @@ public static int userId;
         jLabel2.setText("Annamrita Foundation - Pune");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 386, 41));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("<html> Annamrita Foundation cultivates a more equitable and sustainable food system. We support small-scale farmers practicing sustainable agriculture, providing them with resources and market access. We also educate consumers about the importance of local food systems and empower them to make informed choices about the food they eat.");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 420, 160));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 490, 160));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Sevadeep - Pune");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 114, 342, 41));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("<html> Sevadeep is on a mission to eliminate food insecurity by rescuing surplus food and redistributing it to those in need. Our efforts not only reduce food waste but also nourish individuals and families, fostering healthier and more resilient communities.");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 161, 386, 127));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 161, 480, 127));
 
         FV1.setBackground(new java.awt.Color(51, 51, 255));
-        FV1.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        FV1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         FV1.setForeground(new java.awt.Color(255, 255, 255));
-        FV1.setText("Volunteer");
+        FV1.setText("<html>Volunteer");
         FV1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FV1ActionPerformed(evt);
             }
         });
-        jPanel1.add(FV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 198, 99, 44));
+        jPanel1.add(FV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 200, 110, 44));
 
-        FD1.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        FD1.setText("Donate");
+        FD1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        FD1.setText("<html>Donate");
         FD1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FD1ActionPerformed(evt);
             }
         });
-        jPanel1.add(FD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 198, 87, 44));
+        jPanel1.add(FD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 200, 87, 44));
 
-        FD2.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        FD2.setText("Donate");
+        FD2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        FD2.setText("<html>Donate");
         FD2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FD2ActionPerformed(evt);
             }
         });
-        jPanel1.add(FD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 374, 87, 43));
+        jPanel1.add(FD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 370, 87, 43));
 
         FV2.setBackground(new java.awt.Color(51, 51, 255));
-        FV2.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        FV2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         FV2.setForeground(new java.awt.Color(255, 255, 255));
-        FV2.setText("Volunteer");
+        FV2.setText("<html>Volunteer");
         FV2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 FV2ActionPerformed(evt);
             }
         });
-        jPanel1.add(FV2, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 374, 99, 44));
+        jPanel1.add(FV2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 370, 110, 44));
 
         jButton1.setText("Go Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

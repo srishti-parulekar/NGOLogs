@@ -83,6 +83,7 @@ public class Donator_dashboard extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         DonatorHeader = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         ContributeLabel = new javax.swing.JLabel();
         amountContributed = new javax.swing.JTextField();
@@ -90,7 +91,6 @@ public class Donator_dashboard extends javax.swing.JFrame {
         ContributeLabel1 = new javax.swing.JLabel();
         ChooseBankDropDownMenu = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -104,33 +104,47 @@ public class Donator_dashboard extends javax.swing.JFrame {
         DonatorHeader.setForeground(new java.awt.Color(255, 255, 255));
         DonatorHeader.setText("Donor Form");
 
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jButton1.setText("Go Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(DonatorHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(DonatorHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(DonatorHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel2.setForeground(new java.awt.Color(255, 255, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ContributeLabel.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        ContributeLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         ContributeLabel.setForeground(new java.awt.Color(255, 255, 255));
         ContributeLabel.setText("Choose your bank:");
-        jPanel2.add(ContributeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 186, 40));
-        jPanel2.add(amountContributed, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 269, -1));
+        jPanel2.add(ContributeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 186, 40));
+        jPanel2.add(amountContributed, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 280, 30));
 
         PayButton.setBackground(new java.awt.Color(153, 255, 102));
         PayButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -140,12 +154,12 @@ public class Donator_dashboard extends javax.swing.JFrame {
                 PayButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(PayButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(198, 219, -1, -1));
+        jPanel2.add(PayButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 230, -1, -1));
 
-        ContributeLabel1.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        ContributeLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         ContributeLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        ContributeLabel1.setText("Enter Amount to Contribute:");
-        jPanel2.add(ContributeLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 186, 40));
+        ContributeLabel1.setText("<html>Enter Amount to Contribute:");
+        jPanel2.add(ContributeLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 230, 40));
 
         ChooseBankDropDownMenu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ICICI", "SBI", "HDFC" }));
         ChooseBankDropDownMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -153,18 +167,10 @@ public class Donator_dashboard extends javax.swing.JFrame {
                 ChooseBankDropDownMenuActionPerformed(evt);
             }
         });
-        jPanel2.add(ChooseBankDropDownMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, 85, 40));
+        jPanel2.add(ChooseBankDropDownMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 130, 40));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tanvi/educationImg.jpg"))); // NOI18N
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 610, 400));
-
-        jButton1.setText("Go Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

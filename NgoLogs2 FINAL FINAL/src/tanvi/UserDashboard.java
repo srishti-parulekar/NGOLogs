@@ -110,7 +110,7 @@ public class UserDashboard extends javax.swing.JFrame {
         UsernameTextField = new javax.swing.JFormattedTextField();
         EditButton = new javax.swing.JButton();
         Submitbutton = new javax.swing.JButton();
-        BirthDateChooser = new com.toedter.calendar.JDateChooser();
+        BirthDateChooser = new org.netbeans.modules.form.InvalidComponent();
         changePasswordButton = new javax.swing.JButton();
         PasswordField = new javax.swing.JPasswordField();
 
@@ -809,7 +809,7 @@ public class UserDashboard extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel AddressLabe;
     private javax.swing.JFormattedTextField AddressTextField;
-    private com.toedter.calendar.JDateChooser BirthDateChooser;
+    private org.netbeans.modules.form.InvalidComponent BirthDateChooser;
     private javax.swing.JFormattedTextField DOBTextField;
     private javax.swing.JLabel DateOfBirthLabel;
     private javax.swing.JButton DeleteAccountButton;

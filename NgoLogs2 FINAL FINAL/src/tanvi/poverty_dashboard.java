@@ -75,62 +75,63 @@ public class poverty_dashboard extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Aayushman Foundation - Chennai");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 306, 376, 41));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, 376, 41));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("<html> The Aayushman Foundation is committed to child and maternal health, focusing on reducing mortality rates. Specializing in pediatric healthcare, they provide vital medical aid and preventive care. Additionally, they address educational disparities by offering resources and scholarships to support mothers, ensuring a brighter future for families in need.");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 353, 386, 151));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 353, 470, 190));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Aaradhya Foundation - Mumbai");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 115, 342, 40));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("<html>The Narayan Foundation is dedicated to providing accessible healthcare solutions to communities in need. Our mission is to ensure that every individual receives the care they deserve, promoting well-being and vitality for all");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 161, 386, 127));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 161, 450, 160));
 
         PV1.setBackground(new java.awt.Color(51, 51, 255));
-        PV1.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        PV1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         PV1.setForeground(new java.awt.Color(255, 255, 255));
-        PV1.setText("Volunteer");
+        PV1.setText("<html>Volunteer");
         PV1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PV1ActionPerformed(evt);
             }
         });
-        jPanel1.add(PV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 198, 99, 44));
+        jPanel1.add(PV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, 120, 44));
 
-        PD1.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        PD1.setText("Donate");
+        PD1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        PD1.setText("<html>Donate");
         PD1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PD1ActionPerformed(evt);
             }
         });
-        jPanel1.add(PD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 198, 87, 44));
+        jPanel1.add(PD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 200, 87, 44));
 
-        PD2.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        PD2.setText("Donate");
+        PD2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        PD2.setText("<html>Donate");
         PD2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PD2ActionPerformed(evt);
             }
         });
-        jPanel1.add(PD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 370, 87, 43));
+        jPanel1.add(PD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 360, 87, 43));
 
         PV2.setBackground(new java.awt.Color(51, 51, 255));
-        PV2.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        PV2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         PV2.setForeground(new java.awt.Color(255, 255, 255));
-        PV2.setText("Volunteer");
+        PV2.setText("<html>Volunteer");
+        PV2.setToolTipText("");
         PV2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PV2ActionPerformed(evt);
             }
         });
-        jPanel1.add(PV2, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 370, 99, 44));
+        jPanel1.add(PV2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 130, 44));
 
         jButton2.setText("Go Back");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -139,7 +140,7 @@ public class poverty_dashboard extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 520));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1090, 590));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -159,6 +160,7 @@ public class poverty_dashboard extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void PD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PD1ActionPerformed

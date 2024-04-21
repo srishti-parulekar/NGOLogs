@@ -71,7 +71,7 @@ public class NGODashboard extends javax.swing.JFrame {
         sidePanel.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 100));
 
         SearchBtn.setBackground(new java.awt.Color(0, 0, 0));
-        SearchBtn.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        SearchBtn.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         SearchBtn.setForeground(new java.awt.Color(255, 255, 255));
         SearchBtn.setText("Search People");
         SearchBtn.setAutoscrolls(true);
@@ -106,7 +106,7 @@ public class NGODashboard extends javax.swing.JFrame {
         sidePanel.add(AboutBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 90, 40));
 
         NumberOfVolunteers1.setBackground(new java.awt.Color(0, 0, 0));
-        NumberOfVolunteers1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        NumberOfVolunteers1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         NumberOfVolunteers1.setForeground(new java.awt.Color(255, 255, 255));
         NumberOfVolunteers1.setText("<html> Number of Contributors");
         NumberOfVolunteers1.setAutoscrolls(true);
@@ -122,7 +122,7 @@ public class NGODashboard extends javax.swing.JFrame {
         sidePanel.add(NumberOfVolunteers1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 100, 50));
 
         RevenueBtn1.setBackground(new java.awt.Color(0, 0, 0));
-        RevenueBtn1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        RevenueBtn1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         RevenueBtn1.setForeground(new java.awt.Color(255, 255, 255));
         RevenueBtn1.setText("<html>Revenue Generated");
         RevenueBtn1.setAutoscrolls(true);
@@ -138,16 +138,16 @@ public class NGODashboard extends javax.swing.JFrame {
         sidePanel.add(RevenueBtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 100, 50));
 
         aboutLabel.setBackground(new java.awt.Color(0, 0, 0));
-        aboutLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        aboutLabel.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
 
-        VolunteersLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        VolunteersLabel.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
 
-        DonorLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        DonorLabel.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
 
         RevenueGeneratedLabel.setBackground(new java.awt.Color(0, 0, 0));
-        RevenueGeneratedLabel.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        RevenueGeneratedLabel.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
 
-        RefreshRevenueButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        RefreshRevenueButton.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         RefreshRevenueButton.setText("Refresh");
         RefreshRevenueButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,21 +161,23 @@ public class NGODashboard extends javax.swing.JFrame {
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(mainPanelLayout.createSequentialGroup()
                 .addComponent(sidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10)
                 .addGroup(mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(220, 220, 220)
+                        .addGap(230, 230, 230)
                         .addComponent(RefreshRevenueButton))
-                    .addComponent(aboutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
+                        .addGap(80, 80, 80)
                         .addComponent(DonorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(70, 70, 70)
+                        .addGap(80, 80, 80)
                         .addComponent(VolunteersLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(mainPanelLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(RevenueGeneratedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(10, 10, 10)
+                        .addComponent(aboutLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 905, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(mainPanelLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(RevenueGeneratedLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,13 +206,13 @@ public class NGODashboard extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 606, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 6, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();

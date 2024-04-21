@@ -70,28 +70,28 @@ public class health_dashboard extends javax.swing.JFrame {
         jLabel1.setText("Healthcare");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 52, 274, 60));
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Wellness Initiative - Pune");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 306, 343, 41));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 343, 41));
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("<html> The Wellness Initiativeaims to uplift communities through holistic healthcare services. Our holistic approach encompasses physical, mental, and emotional well-being, ensuring a balanced and thriving society.");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 353, 386, 127));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 450, 127));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Narayan Foundation - Hyderabad");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 114, 342, 41));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 342, 41));
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("<html>The Narayan Foundation is dedicated to providing accessible healthcare solutions to communities in need. Our mission is to ensure that every individual receives the care they deserve, promoting well-being and vitality for all");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 161, 386, 127));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, 386, 127));
 
         HV1.setBackground(new java.awt.Color(51, 51, 255));
-        HV1.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        HV1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         HV1.setForeground(new java.awt.Color(255, 255, 255));
         HV1.setText("Volunteer");
         HV1.addActionListener(new java.awt.event.ActionListener() {
@@ -99,36 +99,36 @@ public class health_dashboard extends javax.swing.JFrame {
                 HV1ActionPerformed(evt);
             }
         });
-        jPanel1.add(HV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 198, 99, 44));
+        jPanel1.add(HV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 200, 120, 44));
 
-        HD1.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        HD1.setText("Donate");
+        HD1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        HD1.setText("<html>Donate");
         HD1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HD1ActionPerformed(evt);
             }
         });
-        jPanel1.add(HD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 198, 87, 44));
+        jPanel1.add(HD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 200, 87, 44));
 
-        HD2.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
-        HD2.setText("Donate");
+        HD2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        HD2.setText("<html>Donate");
         HD2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HD2ActionPerformed(evt);
             }
         });
-        jPanel1.add(HD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(697, 374, 87, 43));
+        jPanel1.add(HD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 380, 87, 43));
 
         HV2.setBackground(new java.awt.Color(51, 51, 255));
-        HV2.setFont(new java.awt.Font("Lucida Sans", 1, 12)); // NOI18N
+        HV2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         HV2.setForeground(new java.awt.Color(255, 255, 255));
-        HV2.setText("Volunteer");
+        HV2.setText("<html>Volunteer");
         HV2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 HV2ActionPerformed(evt);
             }
         });
-        jPanel1.add(HV2, new org.netbeans.lib.awtextra.AbsoluteConstraints(504, 374, 99, 44));
+        jPanel1.add(HV2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, 120, 44));
 
         jButton1.setText("Go Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -137,7 +137,7 @@ public class health_dashboard extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 910, 530));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 600));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

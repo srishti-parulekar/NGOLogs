@@ -120,6 +120,7 @@ public class Volunteer_dashboard extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         InterestsTextArea = new javax.swing.JTextArea();
         SubmitButton1 = new javax.swing.JButton();
+        backgroundImg = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -133,7 +134,7 @@ public class Volunteer_dashboard extends javax.swing.JFrame {
         VolunteerHeader.setForeground(new java.awt.Color(255, 255, 255));
         VolunteerHeader.setText("Volunteer Form");
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("Go Back");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,47 +147,57 @@ public class Volunteer_dashboard extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(VolunteerHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jButton1)
+                .addGap(74, 74, 74)
+                .addComponent(VolunteerHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(VolunteerHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(VolunteerHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 153));
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel2.setForeground(new java.awt.Color(255, 255, 153));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        InterestTextLabel.setFont(new java.awt.Font("Times New Roman", 0, 15)); // NOI18N
-        InterestTextLabel.setText("Mention at least 3 interests:");
+        InterestTextLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        InterestTextLabel.setForeground(new java.awt.Color(255, 255, 255));
+        InterestTextLabel.setText("<html>Mention at least 3 interests:");
+        jPanel2.add(InterestTextLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 158, 164, 40));
 
-        AvailabilityLabel.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        AvailabilityLabel.setText("Mention your availability:");
+        AvailabilityLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        AvailabilityLabel.setForeground(new java.awt.Color(255, 255, 255));
+        AvailabilityLabel.setText("<html>Mention your availability:");
+        jPanel2.add(AvailabilityLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 242, 174, 57));
 
-        MorningButton.setBackground(new java.awt.Color(255, 255, 153));
-        MorningButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        MorningButton.setBackground(new java.awt.Color(0, 0, 0));
+        MorningButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        MorningButton.setForeground(new java.awt.Color(255, 255, 255));
         MorningButton.setText("Morning");
         MorningButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MorningButtonActionPerformed(evt);
             }
         });
+        jPanel2.add(MorningButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 265, 98, -1));
 
-        EveningButton.setBackground(new java.awt.Color(255, 255, 153));
-        EveningButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        EveningButton.setBackground(new java.awt.Color(0, 0, 0));
+        EveningButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        EveningButton.setForeground(new java.awt.Color(255, 255, 255));
         EveningButton.setText("Evening");
+        jPanel2.add(EveningButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(434, 265, 98, -1));
 
-        WhyUsLabel.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
-        WhyUsLabel.setText("Why join us?");
+        WhyUsLabel.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        WhyUsLabel.setForeground(new java.awt.Color(255, 255, 255));
+        WhyUsLabel.setText("<html>Why join us?");
+        jPanel2.add(WhyUsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 333, 140, 40));
 
         WhyUsTextArea.setColumns(20);
         WhyUsTextArea.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
@@ -194,14 +205,18 @@ public class Volunteer_dashboard extends javax.swing.JFrame {
         WhyUsTextArea.setLineWrap(true);
         jScrollPane1.setViewportView(WhyUsTextArea);
 
-        AfternoonButton.setBackground(new java.awt.Color(255, 255, 153));
-        AfternoonButton.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 280, 50));
+
+        AfternoonButton.setBackground(new java.awt.Color(0, 0, 0));
+        AfternoonButton.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        AfternoonButton.setForeground(new java.awt.Color(255, 255, 255));
         AfternoonButton.setText("Afternoon");
         AfternoonButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AfternoonButtonActionPerformed(evt);
             }
         });
+        jPanel2.add(AfternoonButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 265, 98, -1));
 
         SubmitButton.setBackground(new java.awt.Color(0, 204, 0));
         SubmitButton.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
@@ -211,16 +226,20 @@ public class Volunteer_dashboard extends javax.swing.JFrame {
                 SubmitButtonActionPerformed(evt);
             }
         });
+        jPanel2.add(SubmitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, -1, -1));
+        jPanel2.add(InterestsTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 167, 270, 50));
 
         SkillsTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SkillsTextFieldActionPerformed(evt);
             }
         });
+        jPanel2.add(SkillsTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(249, 54, 270, 50));
 
-        InterestsTextArea.setBackground(new java.awt.Color(255, 255, 153));
+        InterestsTextArea.setBackground(new java.awt.Color(0, 0, 0));
         InterestsTextArea.setColumns(20);
-        InterestsTextArea.setFont(new java.awt.Font("Times New Roman", 0, 16)); // NOI18N
+        InterestsTextArea.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        InterestsTextArea.setForeground(new java.awt.Color(255, 255, 255));
         InterestsTextArea.setRows(5);
         InterestsTextArea.setText("Mention 3 interests separated by commas");
         jScrollPane2.setViewportView(InterestsTextArea);
@@ -234,6 +253,8 @@ public class Volunteer_dashboard extends javax.swing.JFrame {
         InterestsTextArea.setBorder(null);
         InterestsTextArea.updateUI();
 
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 54, 190, 60));
+
         SubmitButton1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
         SubmitButton1.setText("CLEAR");
         SubmitButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -241,78 +262,10 @@ public class Volunteer_dashboard extends javax.swing.JFrame {
                 SubmitButton1ActionPerformed(evt);
             }
         });
+        jPanel2.add(SubmitButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(WhyUsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                            .addComponent(InterestTextLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(InterestsTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SkillsTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(14, 14, 14))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(AvailabilityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(MorningButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AfternoonButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(EveningButton, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(123, 123, 123)
-                .addComponent(SubmitButton)
-                .addGap(43, 43, 43)
-                .addComponent(SubmitButton1)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SkillsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InterestTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(InterestsTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(MorningButton)
-                            .addComponent(AfternoonButton)
-                            .addComponent(EveningButton))
-                        .addGap(46, 46, 46))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AvailabilityLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(WhyUsLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SubmitButton)
-                    .addComponent(SubmitButton1))
-                .addGap(48, 48, 48))
-        );
+        backgroundImg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tanvi/educationImg.jpg"))); // NOI18N
+        jPanel2.add(backgroundImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 470));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -324,7 +277,7 @@ public class Volunteer_dashboard extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 2, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -433,6 +386,7 @@ public class Volunteer_dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel VolunteerHeader;
     private javax.swing.JLabel WhyUsLabel;
     private javax.swing.JTextArea WhyUsTextArea;
+    private javax.swing.JLabel backgroundImg;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

@@ -483,6 +483,7 @@ public class UserDashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_SubmitbuttonActionPerformed
 
     private void MyNGOsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MyNGOsButtonActionPerformed
+        close();
         try {
             // TODO add your handling code here:
             NGOTableForUserDashboard n = new NGOTableForUserDashboard(userId);
@@ -743,14 +744,7 @@ public class UserDashboard extends javax.swing.JFrame {
 
 //            pstmt.close();
 //            conn.close();
-    public static void main(String args[]) {
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new UserDashboard().setVisible(true);
-            }
-        });
-    }
+    
 
     private void confirmClosing() {
         boolean changesMade = checkForChanges();
@@ -803,6 +797,15 @@ public class UserDashboard extends javax.swing.JFrame {
         }
 
         return false;
+    }
+    
+    public static void main(String args[]) {
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new UserDashboard().setVisible(true);
+            }
+        });
     }
 
 

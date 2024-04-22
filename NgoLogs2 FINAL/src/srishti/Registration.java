@@ -197,7 +197,7 @@ public class Registration extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(204, 204, 204));
         jLabel5.setText("Date of Birth (D.O.B):");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 167, 235, -1));
-        jPanel2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 190, 254, 41));
+        jPanel2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 254, 41));
 
         jButton2.setText("Already have an account? Log in.");
         jButton2.addActionListener(new java.awt.event.ActionListener() {

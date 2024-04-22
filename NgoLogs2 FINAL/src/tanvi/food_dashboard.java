@@ -137,6 +137,8 @@ public static int userId;
             }
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tanvi/food.jpg"))); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 520));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

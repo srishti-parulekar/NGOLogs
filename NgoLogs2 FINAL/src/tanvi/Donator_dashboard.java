@@ -206,7 +206,7 @@ public class Donator_dashboard extends javax.swing.JFrame {
             
             pstm.setInt(1, ngo_id);
             pstm.setInt(2, userId);
-
+            
             String amountStr = amountContributed.getText();
             int amount = Integer.parseInt(amountStr);
 
@@ -222,6 +222,7 @@ public class Donator_dashboard extends javax.swing.JFrame {
 
             pstm.executeUpdate();
             JOptionPane.showMessageDialog(null, "Donor added!");
+            new UserDashboard(userId).setVisible(true);
             conn.close();
 
 //        } catch (ClassNotFoundException cnfe) {

@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import javax.swing.ImageIcon;
 import tanvi.NGODashboard;
 import tanvi.UserDashboard;
+import srishti.AuthenticationProvider;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -22,7 +23,7 @@ import tanvi.UserDashboard;
  *
  * @author srishtiparulekar
  */
-public class Login extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame implements AuthenticationProvider {
 
     /**
      * Creates new form Login
@@ -31,7 +32,19 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
-    
+
+    public boolean authenticate(String username, String password) {
+        try {
+            Connection con = ConnectionProvider.getCon();
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM person where username = '" + username + "' AND userpassword = '" + password + "';");
+            return rs.next(); // If a record is found, authentication is successful
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            return false; // Return false in case of any exception
+        }
+    }
+
 //    public void SetBG() {
 //        try {
 //            ImageIcon icon = new ImageIcon(getClass().getResource("images\\login_bg.jpg"));
@@ -44,7 +57,6 @@ public class Login extends javax.swing.JFrame {
 //            System.out.println("Error loading background image: " + e.getMessage());
 //        }
 //    }
-
     public void close() {
         WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
@@ -155,47 +167,51 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         String username = txtUserName.getText();
         String password = txtPassword.getText();
-        int temp = 0;
         try {
-            Connection con = ConnectionProvider.getCon();
-            Statement st = con.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM person where username = '" + username + "' AND userpassword = '" + password + "';");
-            while (rs.next()) {
-                temp = 1;
-                if (rs.getString("userrole").equals("Admin")) {
+            if (authenticate(username, password)) {
+                Connection con = ConnectionProvider.getCon();
+                Statement st = con.createStatement();
+                ResultSet rs = st.executeQuery("SELECT * FROM person where username = '" + username + "' AND userpassword = '" + password + "';");
+                int temp = 0;
+                while (rs.next()) {
+                    temp = 1;
+                    if (rs.getString("userrole").equals("Admin")) {
 
-                    String fname = rs.getString("fname");
-                    String lname = rs.getString("lname");
-                    String userrole = rs.getString("userrole");
-                    String email = rs.getString("email");
-                    String dob = rs.getString("dob");
-                    String address = rs.getString("address");
-                    String phone = rs.getString("phone");
-                    setVisible(false);
-                    new adminDash(username, fname, lname, userrole, email, address, phone, dob).setVisible(true);
-                } else if (rs.getString("userrole").equals("NGO")) {
-                    //setVisible(false);
-                    int userId = rs.getInt("userID");
-                    close();
-                    new NGODashboard(userId).setVisible(true);
-                    //set the ngo jframe to be visible
-                } else {
-                    int userId = rs.getInt("userID");
-                    close();
-                    new UserDashboard(userId).setVisible(true);
-                    //new RegisteredUserDashboard().setVisible(true);
+                        String fname = rs.getString("fname");
+                        String lname = rs.getString("lname");
+                        String userrole = rs.getString("userrole");
+                        String email = rs.getString("email");
+                        String dob = rs.getString("dob");
+                        String address = rs.getString("address");
+
+                        String phone = rs.getString("phone");
+                        //CHANGE FROM SOUMILI CODE: phono for me
+
+                        setVisible(false);
+                        new adminDash(username, fname, lname, userrole, email, address, phone, dob).setVisible(true);
+                    } else if (rs.getString("userrole").equals("NGO")) {
+                        //setVisible(false);
+                        int userId = rs.getInt("userID");
+                        close();
+                        new NGODashboard(userId).setVisible(true);
+                        //set the ngo jframe to be visible
+                    } else {
+                        int userId = rs.getInt("userID");
+                        close();
+                        new UserDashboard(userId).setVisible(true);
+                        //new RegisteredUserDashboard().setVisible(true);
+                    }
                 }
-            }
-            if (temp == 0) {
+                if (temp == 0) {
+                    JOptionPane.showMessageDialog(null, "Incorrect Username or Password. ");
+                }
+            } else {
                 JOptionPane.showMessageDialog(null, "Incorrect Username or Password. ");
             }
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
-
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

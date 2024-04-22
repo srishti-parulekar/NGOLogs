@@ -386,6 +386,7 @@ public class Volunteer_dashboard extends javax.swing.JFrame {
 
             pstm.executeUpdate();
             JOptionPane.showMessageDialog(null, "Volunteer added!");
+            new UserDashboard(userId).setVisible(true);
             conn.close();
 
 //        } catch (ClassNotFoundException cnfe) {

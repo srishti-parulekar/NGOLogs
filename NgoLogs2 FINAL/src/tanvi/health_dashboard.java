@@ -10,7 +10,7 @@ import srishti.Login;
 
 public class health_dashboard extends javax.swing.JFrame {
 
-    public static int userId;
+    public int userId;
     public health_dashboard() {
         initComponents();
         setLocationRelativeTo(null);
@@ -26,6 +26,7 @@ public class health_dashboard extends javax.swing.JFrame {
 
     public void init() {
         SetBG();
+        setLocationRelativeTo(null);
     }
 
     public void SetBG() {

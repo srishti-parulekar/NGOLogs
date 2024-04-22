@@ -61,7 +61,6 @@ public class Registration extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -197,7 +196,6 @@ public class Registration extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(204, 204, 204));
         jLabel5.setText("Date of Birth (D.O.B):");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 167, 235, -1));
-        jPanel2.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 190, 254, 41));
 
         jButton2.setText("Already have an account? Log in.");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -474,7 +472,6 @@ public class Registration extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
